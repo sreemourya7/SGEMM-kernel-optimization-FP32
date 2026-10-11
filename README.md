@@ -1,4 +1,4 @@
-# Optimizing SGEMM from Scratch in CUDA
+# Optimizing CUDA SGEMM from Scratch
 
 Modern AI is powered not only by better models, but by how efficiently we can execute them on hardware. At companies like NVIDIA, AMD, Google, Intel, OpenAI and Anthropic, GPU performance engineering sits at the intersection of **hardware, compilers, kernels and large-scale ML systems**. Small improvements in kernel efficiency can translate into faster training, lower inference latency and significantly better hardware utilization.
 
