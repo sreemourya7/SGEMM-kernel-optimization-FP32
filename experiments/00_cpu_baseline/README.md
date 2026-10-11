@@ -1,4 +1,4 @@
-# Experiment 00 — Why GPUs for Matrix Multiplication?
+# Experiment #00 — Why GPUs for Matrix-Multiplication?
 
 Before writing a single CUDA kernel, I wanted to understand the problem we are trying to accelerate.
 
@@ -12,7 +12,7 @@ Let's start from stratch.
 
 ## 1. What is GEMM?
 
-**GEMM** stands for **General Matrix Multiplication**. The general operation is:
+**GEMM** stands for **General Matrix-Multiplication**. The general operation is:
 
 \[
 C = α*AB + β*C
