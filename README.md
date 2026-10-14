@@ -18,4 +18,4 @@ The interesting question is not simply:
 
 It is:
 
-**“What exactly does the GPU need from us to make it fast?”**
+**“What exactly does GPU need from us to make it fast?”**
