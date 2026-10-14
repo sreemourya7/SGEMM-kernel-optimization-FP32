@@ -1,1 +1,1 @@
-# naive kernel learnings
+# Naive kernel
