@@ -2,7 +2,7 @@
 
 Modern AI is powered not only by better models, but by how efficiently we can execute them on hardware. At companies like NVIDIA, AMD, Google, Intel, OpenAI and Anthropic, GPU performance engineering sits at the intersection of **hardware, compilers, kernels and large-scale ML systems**. Small improvements in kernel efficiency can translate into faster training, lower inference latency and significantly better hardware utilization.
 
-In this project, I’ll iteratively optimize matrix multiplication written in CUDA, not to replace cuBLAS, but to understand *why* high-performance GPU kernels are fast. Along the way, I’ll explore concepts such as **Global memory coalescing, shared-memory tiling, register reuse, thread/block tiling, arithmetic intensity, occupancy, and instruction-level parallelism**.
+In this project, I’ll iteratively optimize General matrix multiplication written in CUDA for FP32, through this process we will try to understand *why* high-performance GPU kernels are fast. Along the way, I’ll explore concepts such as **Global memory coalescing, shared-memory tiling, register reuse, thread/block tiling, arithmetic intensity, occupancy, and instruction-level parallelism**.
 
 Matrix multiplication is an ideal place to learn these ideas because it sits at the heart of modern deep learning. A huge portion of the computation in transformers and other neural networks eventually reduces to matrix multiplications.
 
