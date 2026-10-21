@@ -256,9 +256,9 @@ All 32 lanes request the same address, making this a **same-address / broadcast-
 So, at the warp level, the naive kernel has a very asymmetric memory-access pattern:
 
 ```text
-A : different rows, same column → large stride between lanes → non-coalesced ❌
+A : different rows, same column → large STRIDE between lanes → non-coalesced 
 
-B : same element requested by all lanes → broadcast-friendly             ✓
+B : same element requested by all lanes → broadcast-friendly             
 ```
 
 This immediately suggests our first optimization opportunity. The arithmetic itself does not need to change at all; instead, we can change the mapping between threads and output elements so that neighboring lanes access neighboring elements of `A`.
