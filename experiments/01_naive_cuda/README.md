@@ -33,21 +33,21 @@ The outer two loops enumerate every element of `C`.
 
 Instead of having the CPU execute those outer loops one element at a time, CUDA lets us create many threads and assign each thread one `(row, column)` position in `C`.
 
-Conceptually:
+Something like this:
 
 ```text
 Thread (0,0)  -> C[0][0]
-Thread (0,1)  -> C[0][1]
-Thread (0,2)  -> C[0][2]
+Thread (0,1)  -> C[1][0]
+Thread (0,2)  -> C[2][0]
 
-Thread (1,0)  -> C[1][0]
+Thread (1,0)  -> C[0][1]
 Thread (1,1)  -> C[1][1]
-Thread (1,2)  -> C[1][2]
+Thread (1,2)  -> C[2][1]
 
 ...
 ```
 
-Each thread still has to perform the dot product itself, but now many output elements can be computed at the same time.
+Each thread still has to perform the dot product itself, but now many output elements(not all because we don't have as many threads as the number of entries to be computed in matrix C) can be computed at the same time.
 
 > **[Insert Figure 1 here: CUDA Grid → Blocks → Threads]**
 
@@ -57,12 +57,12 @@ Each thread still has to perform the dot product itself, but now many output ele
 
 A CUDA kernel launch creates a **grid**. The grid contains multiple **thread blocks**, and each block contains multiple **threads**.
 
-For this kernel, I use a two-dimensional thread block because the output matrix itself is two-dimensional.
+For this kernel, I use a 2D thread block because the output matrix itself is two-dimensional.
 
 For example:
 
 ```cpp
-dim3 blockDim(32, 32);
+dim3 blockDim(32, 32);//defines a 2D thread block structure containing 1,024 total threads (32 threads in x and 32 threads in y)
 ```
 
 This creates:
@@ -96,11 +96,11 @@ blockDim
 threadIdx
 ```
 
-For a two-dimensional launch, the output position can be computed as:
+For a 2D launch, the output position in this kernel is computed like this:
 
 ```cpp
-int col = blockIdx.x * blockDim.x + threadIdx.x;
-int row = blockIdx.y * blockDim.y + threadIdx.y;
+int x = blockIdx.x * blockDim.x + threadIdx.x;
+int y = blockIdx.y * blockDim.y + threadIdx.y;
 ```
 
 The block tells us which region of the matrix we are in, while the thread index tells us the position inside that block.
