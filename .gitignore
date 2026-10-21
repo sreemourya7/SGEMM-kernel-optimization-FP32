@@ -1,0 +1,18 @@
+# Compiled binaries / objects
+*.exe
+*.obj
+*.o
+
+# Build / linker artifacts
+*.exp
+*.lib
+*.pdb
+
+# Visual Studio
+.vs/
+Debug/
+Release/
+
+# Temporary files
+*.tmp
+*.log
