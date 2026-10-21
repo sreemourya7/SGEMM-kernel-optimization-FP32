@@ -45,7 +45,6 @@ Thread (1,2)  -> C[2][1]
 
 Each thread still has to perform the dot product itself, but now many output elements(not all because we don't have as many threads as the number of entries to be computed in matrix C) can be computed at the same time.
 
-> **[Insert Figure 1 here: CUDA Grid → Blocks → Threads]**
 
 ---
 
@@ -99,7 +98,6 @@ int y = blockIdx.y * blockDim.y + threadIdx.y;
 
 The block tells us which region of the matrix we are in, while the thread index tells us the position inside that block. Together they give the global `(x, y)` coordinate.
 
-> **[Insert Figure 2 here: Thread → C[row][col] mapping]**
 
 ---
 
@@ -261,12 +259,13 @@ A : different rows, same column → large STRIDE between lanes → non-coalesced
 B : same element requested by all lanes → broadcast-friendly             
 ```
 
+![Naive CUDA warp mapping](./assets/gif1.gif)
+
 This immediately suggests our first optimization opportunity. The arithmetic itself does not need to change at all; instead, we can change the mapping between threads and output elements so that neighboring lanes access neighboring elements of `A`.
 
 That is the idea behind the next kernel: **global memory coalescing**.
 
 
-> **[Insert Figure 3 here: Naive global-memory access pattern for A and B]**
 
 ---
 
