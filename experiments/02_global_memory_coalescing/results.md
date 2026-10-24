@@ -94,5 +94,3 @@ The interesting part will not just be the raw speedup. I also want to observe ho
 > **Same kernel. Same math. Turing vs Blackwell.**
 
 Stay tuned.
-
-**Next: Kernel 02 — Nsight Compute Profiling.**
