@@ -19,7 +19,7 @@ For each thread block:
 3. Move the A tile right and the B tile down along the K dimension.
 4. Repeat until the output tile is fully computed.
 
-Each thread is still responsible for **one element of C**.
+Note : Still each thread is still responsible for computing **one element of C** only.
 
 ## Visualization — 32 × 32 Tiled GEMM
 
