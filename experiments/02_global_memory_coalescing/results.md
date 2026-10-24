@@ -79,4 +79,20 @@ The best measured throughput was **330.70 GFLOP/s** at matrix size 2048.
 
 The next step is to profile Kernel 02 using Nsight Compute and investigate how memory transactions, LG Throttle, warp eligibility, and L1/TEX utilization changed.
 
+## RTX 5090 — Coming Soon . . .
+
+The same kernels are also being benchmarked on an **NVIDIA GeForce RTX 5090**, and those results will soon be transferred from my GPU performance-engineering worklog into this repository.
+
+This will allow the exact same SGEMM implementations to be compared across two very different NVIDIA GPU generations:
+
+**Turing — GTX 1650**  
+vs.  
+**Blackwell — RTX 5090**
+
+The interesting part will not just be the raw speedup. I also want to observe how the same kernel responds to architectural differences in compute throughput, memory systems, occupancy, and optimization strategy.
+
+> **Same kernel. Same math. Turing vs Blackwell.**
+
+Stay tuned.
+
 **Next: Kernel 02 — Nsight Compute Profiling.**
