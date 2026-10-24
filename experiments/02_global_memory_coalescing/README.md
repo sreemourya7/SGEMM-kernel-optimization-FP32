@@ -75,3 +75,5 @@ For a full warp of 32 threads loading FP32 values:
 *Illustrative sector counts for aligned accesses, not measured profiler results.*
 
 **Key idea:** We haven't changed the GEMM arithmetic. We've changed which output element each thread computes, allowing the memory hardware to service warp-level loads using fewer sectors.
+
+![Kernel 02 — Horizontal Thread Mapping](assets/kernel02_horizontal_coalescing.gif)
