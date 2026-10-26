@@ -21,7 +21,7 @@ Shared-memory tiling worked, but delivered only a modest speedup.
 
 **Question:** What is preventing Kernel 03 from becoming significantly faster?
 
-## 2. First Profiling Pass — Overall GPU Performance
+## 2. 1st Profiling Pass — Overall GPU Performance
 
 **Command 1:**
 
@@ -52,7 +52,7 @@ This suggests that simply making more warps resident is unlikely to solve our pr
 
 We need to inspect warp scheduling and stalls.
 
-## 3. Second Profiling Pass — Why Are Warps Stalling?
+## 3. 2nd Profiling Pass — Why Are Warps Stalling?
 
 **Command 2:**
 
@@ -102,7 +102,7 @@ After introducing shared-memory tiling, **the dominant stall shifted to MIO Thro
 
 Shared-memory instructions are now a leading suspect, but we need more evidence.
 
-## 4. Third Profiling Pass — Count Memory Instructions
+## 4. 3rd Profiling Pass — Count Memory Instructions
 
 **Command 3:**
 
@@ -129,7 +129,7 @@ However, a large instruction count alone doesn't establish which instructions ar
 
 **Next question:** Where in our kernel are these stalls observed?
 
-## 5. Fourth Profiling Pass — Trace Stalls Back to Source Code
+## 5. 4th Profiling Pass — Trace Stalls Back to Source Code
 
 ### Step A — Compile With Source-Line Mapping
 
@@ -151,7 +151,7 @@ It lets Nsight associate generated GPU assembly instructions with their original
 ncu --kernel-name sgemm_smem --launch-count 1 --section SourceCounters --import-source yes -o smem_source_512 smem_gemm.exe 512 1 0
 ```
 
-- `SourceCounters`: Collects instruction-associated stall samples.
+- `SourceCounters`: Collects instruction-associated stall samples (**IMPORTANT**).
 - `--import-source yes`: Includes available CUDA source code in the report.
 - `-o smem_source_512`: Saves the report as `smem_source_512.ncu-rep`.
 
