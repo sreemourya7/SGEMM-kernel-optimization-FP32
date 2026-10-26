@@ -308,11 +308,5 @@ Higher register usage may reduce occupancy or introduce other bottlenecks. Thus,
 
 Implement Kernel 04 using **1D Block Tiling (`TM=8`)**.
 
-Compare it against Kernel 03 using:
-
-1. Standalone GFLOP/s and execution time.
-2. Executed shared-memory load instructions relative to useful computation.
-3. MIO Throttle and scheduler eligibility.
-4. Register usage and achieved occupancy.
 
 **Final takeaway:** Profiling revealed that high occupancy alone was insufficient. We traced the dominant MIO stalls from scheduler statistics to shared-memory load instructions in the GEMM inner loop. This provides a concrete, hardware-informed reason to investigate register reuse through 1D block tiling.
