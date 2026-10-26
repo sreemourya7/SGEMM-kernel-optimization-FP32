@@ -243,7 +243,7 @@ That is **2 scalar loads per FMA** before accounting for compiler optimizations 
 
 ### Proposed Kernel 04 — 1D Block Tiling
 
-Instead, let one thread compute eight vertically adjacent output elements:
+Instead, let one thread compute eight(say) vertically adjacent output elements:
 
 ```text
 C[0][col]
