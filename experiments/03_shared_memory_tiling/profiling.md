@@ -79,11 +79,13 @@ ncu --kernel-name sgemm_smem --launch-count 1 --section SchedulerStats --section
 | Dominant stall | **MIO Throttle — 23.6 cycles** |
 | Memory Pipes Busy | 69.28% |
 
+"MIO Throttle — 23.6 cycles" means that, on average, a warp scheduler was forced to stall for 23.6 clock cycles because the Memory Input/Output (MIO) instruction queue was completely full.
+
 Despite excellent occupancy, a scheduler has **no eligible warp during approximately 79% of cycles**.
 
 The dominant stall reason is **MIO Throttle**.
 
-MIO (Memory Input/Output) Throttle occurs when the MIO instruction queue is full. This queue services instructions including shared-memory operations, special math, and certain control operations.
+MIO Throttle occurs when the MIO instruction queue is full. This queue services instructions including shared-memory operations, special math and certain control operations.
 
 Approximately 61.4% of the average warp issue interval is attributed to MIO Throttle.
 
