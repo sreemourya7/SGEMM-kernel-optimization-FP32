@@ -68,6 +68,8 @@ Kernel 04: 8 outputs/thread
        Less MIO instruction pressure
                  |
         Higher useful FP32 throughput
+
+![Kernel 04 — 1D Block Tiling](assets/kernel04_1d_block_tiling.gif)
 ```
 
 The tradeoff is **more registers per thread**, which can reduce occupancy. We evaluate the design with both CUDA-event benchmarks and Nsight Compute rather than assuming either higher occupancy or fewer loads must always win.
