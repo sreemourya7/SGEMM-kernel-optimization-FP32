@@ -61,7 +61,7 @@ Therefore:
 
 **8 A values + 8 B values → 64 FMAs.**
 
-This is an *outer-product computation*.
+VERY IMPORTANT TECHNIQUE : This is an *outer-product computation*.
 
 Rather than repeatedly fetching operands for individual output elements, the thread loads small fragments and uses every combination of A and B values.
 
