@@ -1,0 +1,22 @@
+Kernel: sgemm_block2d
+Matrix: 4096 x 4096
+Grid: (64, 32)
+Block: 256 threads
+Tile: 128x64x16 | TM=8 TN=4
+SMEM: 12800 bytes
+Run 1: 72.1797 ms | 1904.1217 GFLOP/s
+Run 2: 72.2499 ms | 1902.2713 GFLOP/s
+Run 3: 72.1196 ms | 1905.7084 GFLOP/s
+Run 4: 72.0967 ms | 1906.3148 GFLOP/s
+Run 5: 72.2450 ms | 1902.4020 GFLOP/s
+Run 6: 72.2227 ms | 1902.9878 GFLOP/s
+Run 7: 72.1388 ms | 1905.2027 GFLOP/s
+Run 8: 72.1266 ms | 1905.5250 GFLOP/s
+Run 9: 72.2329 ms | 1902.7197 GFLOP/s
+
+===== Final Result =====
+Matrix     : 4096 x 4096
+Operations : 137.4390 GFLOPs
+Median time: 72.1797 ms
+Median perf: 1904.1217 GFLOP/s
+Verification: SKIPPED

@@ -1,0 +1,18 @@
+Kernel: sgemm_block2d
+Matrix: 512 x 512
+Grid: (8, 8)
+Block: 256 threads
+Tile: 64x64x16 | TM=4 TN=4
+SMEM: 8448 bytes
+Run 1: 0.2601 ms | 1032.0629 GFLOP/s
+Run 2: 0.2621 ms | 1024.0000 GFLOP/s
+Run 3: 0.2600 ms | 1032.5711 GFLOP/s
+Run 4: 0.2621 ms | 1024.0000 GFLOP/s
+Run 5: 0.2592 ms | 1035.6306 GFLOP/s
+
+===== Final Result =====
+Matrix     : 512 x 512
+Operations : 0.2684 GFLOPs
+Median time: 0.2601 ms
+Median perf: 1032.0629 GFLOP/s
+Verification: PASS (max abs error: 0.000031)
