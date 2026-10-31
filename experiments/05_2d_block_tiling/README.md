@@ -479,7 +479,7 @@ The central data flow is:
         GLOBAL MEMORY
            C tile
 ```
-
+![Kernel 05 — 2D Register Tiling](assets/kernel05_2d_register_tiling.gif)
 ---
 
 ## 9. What Did This Optimization Teach Us?
